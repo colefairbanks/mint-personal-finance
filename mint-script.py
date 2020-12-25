@@ -17,7 +17,7 @@ del df['Labels']
 del df['Notes']
 
 #Adding a month and year column
-df['Date'] =  pd.to_datetime(df['Date'], format='%m/%d/%Y')
+df['Date'] =  pd.to_datetime(df['Date'], format='%m/%d/%y')
 df['Year'] = pd.DatetimeIndex(df['Date']).year
 df['Month'] = pd.DatetimeIndex(df['Date']).month
 df['Month'] = df['Month'].apply(lambda x: calendar.month_abbr[x])
@@ -56,4 +56,4 @@ def append_df_to_excel(filename, df, sheet_name='Sheet1', startrow=None,
     writer.save()
 
 #executing helper function by specifying excel file name, dataframe name, sheet name, index, and where data frame should start
-append_df_to_excel('PersonalFinances_template.xlsx', df, sheet_name='transactions_data', index=False, startrow=0)
+append_df_to_excel('PersonalFinance_template.xlsx', df, sheet_name='transactions_data', index=False, startrow=0)
